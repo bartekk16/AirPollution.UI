@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { Weather } from '../models/Weather';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,11 @@ export class HomeService {
     .set('appid', this.apiKey)
 
     return this.http.get<any>(this.weatherUrl, {params});
+  }
+
+  sendWeather(weather: Array<Weather>): Observable<Array<Weather>>{
+    //console.log(weather);
+    return this.http.post<Array<Weather>>(this.baseUrlApi + '/api/Weather', weather);
   }
 }
 //=50.0833

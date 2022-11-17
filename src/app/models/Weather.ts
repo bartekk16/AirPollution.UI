@@ -1,24 +1,24 @@
 import { AUTO_STYLE } from "@angular/animations";
 
 export class Weather {
-  Date: string;
-  Temperature: number;
-    Humidity: number;
-    Pressure: number;
-    WindSpeed: number;
-    AirPollution: number;
+  date: string;
+  temperature: number;
+    humidity: number;
+    pressure: number;
+    windSpeed: number;
+    airPollution: number;
   constructor(
-    Date: string,
-    Temperature: number,
-    Humidity: number,
-    Pressure: number,
-    WindSpeed: number,
-    AirPollution: number){
-      this.Date = Date;
-      this.Temperature = Temperature;
-      this.Humidity = Humidity;
-      this.Pressure = Pressure;
-      this.WindSpeed = WindSpeed;
-      this.AirPollution = AirPollution;
+    date: string,
+    temperature: number,
+    humidity: number,
+    pressure: number,
+    windSpeed: number,
+    airPollution: number){
+      this.date = date;
+      this.temperature = temperature;
+      this.humidity = humidity;
+      this.pressure = pressure;
+      this.windSpeed = windSpeed;
+      this.airPollution = airPollution;
     }
 }

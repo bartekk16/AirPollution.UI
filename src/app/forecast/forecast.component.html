@@ -7,22 +7,22 @@
   </div>
   <div style="margin-bottom: 20px;" *ngFor="let weather of airPollutionArray; let i = index" class="row col-md-24">
     <div class="row">
-      Dzień: {{weather.Date}}
+      Dzień: {{weather.date}}
     </div>
     <div class="row">
-      Temperatura: {{weather.Temperature}} st. C
+      Temperatura: {{weather.temperature}} st. C
     </div>
     <div class="row">
-      Wilgotność: {{weather.Humidity}}%
+      Wilgotność: {{weather.humidity}}%
     </div>
     <div class="row">
-      Ciśnienie: {{weather.Pressure}} hPa
+      Ciśnienie: {{weather.pressure}} hPa
     </div>
     <div class="row">
-      Prędkość wiatru: {{weather.WindSpeed}} km/h
+      Prędkość wiatru: {{weather.windSpeed}} km/h
     </div>
     <div class="row">
-      PM 2.5: {{weather.AirPollution}} um
+      PM 2.5: {{weather.airPollution}} um
     </div>
   </div>
 </div>
