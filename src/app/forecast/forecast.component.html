@@ -5,4 +5,24 @@
       <!-- <h2> Weather in {{weather.name}}, {{weather.sys.country}}</h2> -->
     </div>
   </div>
+  <div style="margin-bottom: 20px;" *ngFor="let weather of airPollutionArray; let i = index" class="row col-md-24">
+    <div class="row">
+      Dzień: {{weather.Date}}
+    </div>
+    <div class="row">
+      Temperatura: {{weather.Temperature}} st. C
+    </div>
+    <div class="row">
+      Wilgotność: {{weather.Humidity}}%
+    </div>
+    <div class="row">
+      Ciśnienie: {{weather.Pressure}} hPa
+    </div>
+    <div class="row">
+      Prędkość wiatru: {{weather.WindSpeed}} km/h
+    </div>
+    <div class="row">
+      PM 2.5: {{weather.AirPollution}} um
+    </div>
+  </div>
 </div>
