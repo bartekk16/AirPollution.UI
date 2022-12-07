@@ -1,28 +1,52 @@
 <div class="row">
-  <div class = "col-md-6 offset-md-3">
+  <div class="col-md-6 offset-md-3">
     <div class="col-sm-12 text-center">
-      <h5>Forecast for your city</h5>
+      <h5 style="margin-top: 10px">Wpisz nazwę miasta, aby pobrać pogodę</h5>
       <!-- <h2> Weather in {{weather.name}}, {{weather.sys.country}}</h2> -->
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Miasto</mat-label>
+          <input [disabled]="!this.upload.enterCity"
+            type="email"
+            matInput
+            name="city"
+            [(ngModel)]="city"
+            placeholder="Ex. Kraków"
+            (keyup.enter)="saveCity()"
+          />
+        </mat-form-field>
+      </form>
     </div>
+    <app-upload #upload></app-upload>
   </div>
-  <div style="margin-bottom: 20px;" *ngFor="let weather of airPollutionArray; let i = index" class="row col-md-24">
-    <div class="row">
-      Dzień: {{weather.date}}
-    </div>
-    <div class="row">
-      Temperatura: {{weather.temperature}} st. C
-    </div>
-    <div class="row">
-      Wilgotność: {{weather.humidity}}%
-    </div>
-    <div class="row">
-      Ciśnienie: {{weather.pressure}} hPa
-    </div>
-    <div class="row">
-      Prędkość wiatru: {{weather.windSpeed}} km/h
-    </div>
-    <div class="row">
-      PM 2.5: {{weather.airPollution}} um
+  <div class="row text-center">
+    <div
+      style="margin-bottom: 20px"
+      *ngFor="let weather of airPollutionArray; let i = index"
+      class="col-md-6"
+    >
+      <div class="col-md-8">
+        <div class="box" style="font-size: 20px;">
+          <div style="justify-content: center; padding: 5px;" class="row col-md-12">
+            Dzień: {{ weather.date }}
+          </div>
+          <div style="justify-content: center; padding: 5px;" class="row">
+            Temperatura: {{ weather.temperature }} st. C
+          </div>
+          <div style="justify-content: center; padding: 5px;" class="row">
+            Wilgotność: {{ weather.humidity }}%
+          </div>
+          <div style="justify-content: center; padding: 5px;" class="row">
+            Ciśnienie: {{ weather.pressure }} hPa
+          </div>
+          <div style="justify-content: center; padding: 5px;" class="row">
+            Prędkość wiatru: {{ weather.windSpeed }} km/h
+          </div>
+          <div style="justify-content: center; padding: 5px;" class="row">
+            PM 2.5: {{ weather.airPollution }} um
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

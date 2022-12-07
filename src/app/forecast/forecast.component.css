@@ -1,0 +1,19 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+h5{
+  font-size: 20px;
+}
+
+.box{
+-webkit-box-shadow: 17px 16px 32px 12px rgba(66, 68, 90, 1);
+-moz-box-shadow: 17px 16px 32px 12px rgba(66, 68, 90, 1);
+box-shadow: 17px 16px 32px 12px rgba(66, 68, 90, 1);
+width: 80%;
+}
