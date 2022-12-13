@@ -15,6 +15,9 @@ import { ForecastComponent } from './forecast/forecast.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import {MatIcon, MatIconModule, MatIconRegistry} from '@angular/material/icon';
+import { InstructionsComponent } from './instructions/instructions.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     NavbarComponent,
     ForecastComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    InstructionsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +37,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatDatepickerModule,
     BrowserAnimationsModule,
     MatNativeDateModule,
+    MatButtonModule,
     MatInputModule,
+    MatIconModule,
     FormsModule,
     ReactiveFormsModule,
+
     //MaterialModule,
 
   ],

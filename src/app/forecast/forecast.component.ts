@@ -90,19 +90,11 @@ export class ForecastComponent implements OnInit {
       this.weather.list.filter((w: any) => w.dt_txt == today + " 12:00:00")[0].wind.speed + this.weather.list.filter((w: any) => w.dt_txt == today + " 15:00:00")[0].wind.speed +
       this.weather.list.filter((w: any) => w.dt_txt == today + " 18:00:00")[0].wind.speed + this.weather.list.filter((w: any) => w.dt_txt == today + " 21:00:00")[0].wind.speed) / 8).toFixed(2));
 
-      //console.log(this.weather.list.filter((w: any) => w.dt_txt == today + " 18:00:00")[0].main.humidity)
-      //console.log(this.weather.list.filter((w: any) => w.dt_txt == today + " 18:00:00")[0].main.pressure)
-      //console.log(this.weather.list.filter((w: any) => w.dt_txt == today + " 18:00:00")[0].wind.speed)
-
-      //this.weatherArray.push(this.weather.list.filter((w: any) => w.dt_txt.include(today)[0]));
-      //this.weatherArray.push(weatherObject);
       this.airPollutionArray.push(weatherObject);
     }
-    this.getProcessedData();
 
-    //console.log(this.airPollutionArray);
-    //console.log(this.weather)
-    //this.prepareDataToProcessAirPollution();
+    //this.getProcessedData(); //wolanie backendu
+
   }
 
   // prepareDataToProcessAirPollution(){
@@ -131,6 +123,10 @@ export class ForecastComponent implements OnInit {
       this.weatherService.sendWeather(this.airPollutionArray).subscribe( data => {
       this.airPollutionArray = data;
     });
+  }
+
+  clearArrayAfterReadingCsv(){
+    this.airPollutionArray = new Array<Weather>();
   }
 
 

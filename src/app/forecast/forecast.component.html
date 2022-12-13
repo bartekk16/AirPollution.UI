@@ -1,31 +1,144 @@
 <div class="row">
-  <div class="col-md-6 offset-md-3">
-    <div class="col-sm-12 text-center">
-      <h5 style="margin-top: 10px">Wpisz nazwę miasta, aby pobrać pogodę</h5>
-      <!-- <h2> Weather in {{weather.name}}, {{weather.sys.country}}</h2> -->
-      <form class="example-form">
-        <mat-form-field class="example-full-width">
-          <mat-label>Miasto</mat-label>
-          <input [disabled]="!this.upload.enterCity"
-            type="email"
-            matInput
-            name="city"
-            [(ngModel)]="city"
-            placeholder="Ex. Kraków"
-            (keyup.enter)="saveCity()"
-          />
-        </mat-form-field>
-      </form>
-    </div>
-    <app-upload #upload></app-upload>
+  <div class="col-md-12" style="margin: 20px 0 20px 0; text-align: center">
+    <h5 style="margin-top: 10px; justify-content: center">
+      <span style="font-size: 30px;"> Wpisz nazwę lokalizacji, aby pobrać pogodę </span>
+    </h5>
   </div>
-  <div class="row text-center">
+  <div class="row">
+    <div class="col-md-7 pull-right">
+      <!-- <h2> Weather in {{weather.name}}, {{weather.sys.country}}</h2> -->
+      <span>
+        <form style="margin: auto" class="example-form pull-right">
+          <mat-form-field style="font-size: 20px" class="example-full-width">
+            <mat-label style="font-size: 18px">Lokalizacja</mat-label>
+            <!-- [disabled]="!this.upload.enterCity" -->
+            <input
+              type="email"
+              matInput
+              name="city"
+              [(ngModel)]="city"
+              placeholder="Ex. Kraków"
+            />
+            <!-- (keyup.enter)="saveCity()" -->
+          </mat-form-field>
+        </form>
+      </span>
+    </div>
+    <div class="col-md-5 pull-left">
+      <button
+        mat-raised-button
+        color="primary"
+        style="font-size: 20px; margin-top: 20px;"
+        (click)="saveCity()"
+      >
+        Oblicz zanieczyszczenie
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div style="text-align: center; margin-bottom: 20px" class="col-md-12">
+      <mat-icon>info</mat-icon>
+      <span style="font-size: 25px; font-style: italic; color: gray;">
+        W celu obliczenia zanieczyszczenia powietrza dla innej lokalizacji niż
+        podana domyślnie, <br />konieczne jest wczytanie dla niej historycznych danych
+        pogodowych oraz danych z czujnika zanieczyszczenia. <br />Instrukcja
+        przygotowania pliku w zakładce
+        <a href="/instructions">"Instrukcja konfiguracji nowej lokalizacji"</a>
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <app-upload (onUploadFinished)="clearArrayAfterReadingCsv()" #upload></app-upload>
+  </div>
+
+  <div style="justify-content: center" class="row text-center">
     <div
-      style="margin-bottom: 20px"
+      style="margin-bottom: 100px"
       *ngFor="let weather of airPollutionArray; let i = index"
-      class="col-md-6"
+      class="col-md-5"
     >
-      <div class="col-md-8">
+      <div style="margin: auto" class="col-sm-9" id="weather-container">
+        <div class="row" id="header">
+          <div style="justify-content: center" class="col-sm-12 location">
+            <span>{{ city }} - {{ weather.date | date : "dd.MM.yyyy" }}</span>
+          </div>
+        </div>
+        <hr style="margin-bottom: 40px" class="divider" />
+        <div class="row">
+          <div class="col-md-6 pull-right">
+            <img
+              class="pull-right"
+              style="filter: opacity(0.5) drop-shadow(0 0 0 rgb(23, 146, 151))"
+              src="../../assets/images/smog.png"
+              width="100"
+              height="80"
+            />
+          </div>
+          <div
+            style="font-size: 40px; margin: auto"
+            class="col-md-6 pull-left text-left"
+          >
+            <span class="pull-left">{{ weather.airPollution }} µm</span>
+          </div>
+        </div>
+        <hr style="margin-top: 40px" class="divider" />
+        <div class="row" id="extra-weather">
+          <div class="col-sm-3 col-xs-6 extra-weather-item">
+            <img
+              style="
+                margin-bottom: 10px;
+                filter: opacity(0.5) drop-shadow(0 0 0 rgb(23, 146, 151));
+              "
+              src="../../assets/images/temp.png"
+            />
+            <br />
+            <span id="high-temp">{{ weather.temperature }}°C</span>
+          </div>
+          <div class="col-sm-3 col-xs-6 extra-weather-item">
+            <img
+              style="
+                filter: opacity(0.5) drop-shadow(0 0 0 rgb(23, 146, 151));
+                margin-top: 27px;
+                margin-bottom: 37px;
+              "
+              src="../../assets/images/wind.png"
+            />
+            <br />
+            <span style="margin-top: 27px" id="low-temp"
+              >{{ weather.windSpeed }} km/h</span
+            >
+          </div>
+          <div class="col-sm-3 col-xs-6 extra-weather-item">
+            <img
+              style="
+                margin-bottom: 10px;
+                filter: opacity(0.5) drop-shadow(0 0 0 rgb(23, 146, 151));
+              "
+              src="../../assets/images/hum.png"
+            />
+            <br />
+            <span style="margin-top: 10px" id="humidity"
+              >{{ weather.humidity }}%</span
+            >
+          </div>
+          <div class="col-sm-3 col-xs-6 extra-weather-item">
+            <img
+              style="
+                filter: opacity(0.5) drop-shadow(0 0 0 rgb(23, 146, 151));
+                margin-top: 25px;
+                margin-bottom: 35px;
+              "
+              src="../../assets/images/pressure.png"
+            />
+            <br />
+            <span style="" id="pressure">{{ weather.pressure }}</span> hPa
+          </div>
+        </div>
+        <hr class="divider" />
+      </div>
+    </div>
+
+    <!-- <div class="col-md-8">
         <div class="box" style="font-size: 20px;">
           <div style="justify-content: center; padding: 5px;" class="row col-md-12">
             Dzień: {{ weather.date }}
@@ -46,7 +159,10 @@
             PM 2.5: {{ weather.airPollution }} um
           </div>
         </div>
-      </div>
-    </div>
+      </div> -->
+    <!-- </div> -->
+
+    <!-- </div> -->
+    <!-- </div> -->
   </div>
 </div>

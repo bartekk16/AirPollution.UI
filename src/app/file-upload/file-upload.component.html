@@ -1,11 +1,21 @@
-<div class="row" style="margin-bottom:15px;">
-  <div class="col-md-3">
-    <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">
-    <button type="button" class="btn btn-success" (click)="file.click()">Upload File</button>
-  </div>
-  <div class="col-md-4">
-    <span class="upload" *ngIf="message">
-      {{message}}
+<div class="row" style="margin-bottom: 45px">
+  <div style="margin-right: 0rem;" class="col-sm-7">
+    <span class="pull-right" style="margin-right: 9rem;">
+      <input
+        type="file"
+        #file
+        placeholder="Choose file"
+        (change)="uploadFile(file.files)"
+        style="display: none"
+      />
+      <!-- <button type="button" class="btn btn-success" (click)="file.click()">Upload File</button> -->
+      <button mat-raised-button color="primary" (click)="file.click()">
+        Załącz plik .csv
+      </button>
+      <span class="upload" *ngIf="message">
+        {{ message }}
+      </span>
     </span>
   </div>
+  <div class="col-md-5"></div>
 </div>

@@ -1,5 +1,6 @@
 import { HttpClient, HttpEventType, HttpErrorResponse } from '@angular/common/http';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Weather } from '../models/Weather';
 
 @Component({
   selector: 'app-upload',
@@ -11,6 +12,7 @@ export class FileUploadComponent implements OnInit {
   progress: number = 0;
   message: string= " ";
   enterCity: boolean = false;
+  @Input() airPollutionArray: Array<Weather> | undefined;
   @Output() public onUploadFinished = new EventEmitter();
 
   constructor(private http: HttpClient) { }
@@ -34,7 +36,8 @@ export class FileUploadComponent implements OnInit {
         else if (event.type === HttpEventType.Response) {
           this.message = 'Wczytywanie zakończone.';
           this.enterCity = true;
-          this.onUploadFinished.emit(event.body);
+          this.onUploadFinished.emit();
+          this.airPollutionArray = new Array<Weather>();
         }
       },
       error: (err: HttpErrorResponse) => console.log(err)
