@@ -20,9 +20,7 @@ export class ForecastComponent implements OnInit {
 
   @ViewChild ('upload') upload: FileUploadComponent | undefined;
 
-  airPollutionArray: Array<Weather> = new Array;
-
-  //emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  airPollutionArray: Array<Weather> = new Array();
 
   matcher = new MyErrorStateMatcher();
   city: string = "Dąbrowa Szlachecka";
@@ -32,14 +30,6 @@ export class ForecastComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
-  // getWeather(){
-  //   this.weatherService.getWeatherDataByCoords(50.0833, 19.9167).subscribe(
-  //     data =>{this.weather = data;
-  //     console.log(this.weather);
-  //   }
-  //   );
-  // }
 
   getWeatherByCityName(city: string){
     this.weatherService.getWeatherByCityName(city).subscribe(
@@ -93,7 +83,7 @@ export class ForecastComponent implements OnInit {
       this.airPollutionArray.push(weatherObject);
     }
 
-    //this.getProcessedData(); //wolanie backendu
+    this.getProcessedData(); //wolanie backendu
 
   }
 

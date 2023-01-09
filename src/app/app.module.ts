@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HomeComponent } from './home/home.component';
+//import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -18,15 +18,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import {MatIcon, MatIconModule, MatIconRegistry} from '@angular/material/icon';
 import { InstructionsComponent } from './instructions/instructions.component';
+import { SimulatePollutionComponent } from './simulate-pollution/simulate-pollution.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    //HomeComponent,
     NavbarComponent,
     ForecastComponent,
     FileUploadComponent,
-    InstructionsComponent
+    InstructionsComponent,
+    SimulatePollutionComponent
   ],
   imports: [
     BrowserModule,

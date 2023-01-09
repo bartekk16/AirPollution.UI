@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-md-12" style="margin: 20px 0 20px 0; text-align: center">
+      <h5 style="margin-top: 10px; justify-content: center">
+        <span style="font-size: 30px;"> Wpisz wartości czynników pogodowych, aby obliczyć przewidywanie zanieczyszczenie</span>
+      </h5>
+    </div>
+    <div class="row">
+      <div class="col-md-7" style="margin: auto;">
+        <!-- 5 4 90, 1014 -->
+        <span style="text-align: center;">
+          <form style="margin: auto" class="example-form">
+            <mat-form-field style="font-size: 20px" class="example-full-width">
+              <mat-label style="font-size: 18px">Temperatura w °C</mat-label>
+              <input
+                type="email"
+                matInput
+                name="temperature"
+                [(ngModel)]="weather.temperature"
+              />
+            </mat-form-field>
+            <mat-form-field style="font-size: 20px" class="example-full-width">
+                <mat-label style="font-size: 18px">Wilgotność w %</mat-label>
+                <input
+                  type="email"
+                  matInput
+                  name="humidity"
+                  [(ngModel)]="weather.humidity"
+                />
+              </mat-form-field>
+              <mat-form-field style="font-size: 20px" class="example-full-width">
+                <mat-label style="font-size: 18px">Ciśnienie w hPa</mat-label>
+                <input
+                  type="email"
+                  matInput
+                  name="pressure"
+                  [(ngModel)]="weather.pressure"
+                />
+              </mat-form-field>
+              <mat-form-field style="font-size: 20px" class="example-full-width">
+                <mat-label style="font-size: 18px">Prędkość wiatru w km/h</mat-label>
+                <input
+                  type="email"
+                  matInput
+                  name="windSpeed"
+                  [(ngModel)]="weather.windSpeed"
+                />
+              </mat-form-field>
+          </form>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+
+        <div class="col pull-right">
+            <span class="pull-right" style="font-size: 22px; margin-top: 7px;">PM2.5: {{ airPollutionArray[0].airPollution.toFixed(0) }} μg/m³</span>
+        </div>
+        <div class="col pull-left">
+            <button
+              mat-raised-button
+              color="primary"
+              style="font-size: 20px;"
+              (click)="calculatePollution()"
+            >
+              Oblicz zanieczyszczenie
+            </button>
+          </div>
+    </div>
+</div>
