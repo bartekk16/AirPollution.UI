@@ -10,7 +10,7 @@ import { Weather } from '../models/Weather';
 export class HomeService {
   baseUrlApi: string = environment.baseUrlApi;
   weatherUrl: string = 'https://api.openweathermap.org/data/2.5/forecast';
-  apiKey = 'b5746da7fe201705479454cc6aa97e5c';
+  apiKey = 'exampleapikey';
 
   constructor(private http: HttpClient) { }
 
