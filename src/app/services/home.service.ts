@@ -41,10 +41,6 @@ export class HomeService {
   }
 
   sendWeather(weather: Array<Weather>): Observable<Array<Weather>>{
-    //console.log(weather);
     return this.http.post<Array<Weather>>(this.baseUrlApi + '/api/Weather', weather);
   }
 }
-//=50.0833
-//=19.9167
-//"http://localhost:4200/api.openweathermap.org/data/2.5/forecast/daily?lat=50&lon=20&cnt=7&appid=b5746da7fe201705479454cc6aa97e5c"

@@ -6,12 +6,10 @@
   </div>
   <div class="row">
     <div class="col-md-7 pull-right">
-      <!-- <h2> Weather in {{weather.name}}, {{weather.sys.country}}</h2> -->
       <span>
         <form style="margin: auto" class="example-form pull-right">
           <mat-form-field style="font-size: 20px" class="example-full-width">
             <mat-label style="font-size: 18px">Lokalizacja</mat-label>
-            <!-- [disabled]="!this.upload.enterCity" -->
             <input
               type="email"
               matInput
@@ -19,7 +17,6 @@
               [(ngModel)]="city"
               placeholder="Ex. Kraków"
             />
-            <!-- (keyup.enter)="saveCity()" -->
           </mat-form-field>
         </form>
       </span>
@@ -68,7 +65,7 @@
           <div class="col-md-3 pull-right">
             <img
               class="pull-right"
-              style="filter: opacity(0.5) drop-shadow(0 0 0 rgb(27, 156, 156))"
+              style="filter: opacity(0.5) drop-shadow(0 0 0 rgb(0, 0, 0))"
               src="../../assets/images/smog.png"
               width="100"
               height="80"
@@ -87,7 +84,7 @@
             <img
               style="
                 margin-bottom: 10px;
-                filter: opacity(0.5) drop-shadow(0 0 0 rgb(27, 156, 156));
+                filter: opacity(0.5) drop-shadow(0 0 0 rgb(0, 0, 0));
               "
               src="../../assets/images/temp.png"
             />
@@ -97,7 +94,8 @@
           <div class="col-sm-3 col-xs-6 extra-weather-item">
             <img
               style="
-                filter: opacity(0.5) drop-shadow(0 0 0 rgb(27, 156, 156));
+                /* filter: opacity(0.5) drop-shadow(0 0 0 rgb(27, 156, 156)); */
+                filter: opacity(0.5) drop-shadow(0 0 0 rgb(0, 0, 0));
                 margin-top: 27px;
                 margin-bottom: 37px;
               "
@@ -112,7 +110,7 @@
             <img
               style="
                 margin-bottom: 10px;
-                filter: opacity(0.5) drop-shadow(0 0 0 rgb(27, 156, 156));
+                filter: opacity(0.5) drop-shadow(0 0 0 rgb(0, 0, 0));
               "
               src="../../assets/images/hum.png"
             />
@@ -124,7 +122,7 @@
           <div class="col-sm-3 col-xs-6 extra-weather-item">
             <img
               style="
-                filter: opacity(0.5) drop-shadow(0 0 0 rgb(27, 156, 156));
+                filter: opacity(0.5) drop-shadow(0 0 0 rgb(0, 0, 0));
                 margin-top: 25px;
                 margin-bottom: 35px;
               "
@@ -137,32 +135,5 @@
         <hr class="divider" />
       </div>
     </div>
-
-    <!-- <div class="col-md-8">
-        <div class="box" style="font-size: 20px;">
-          <div style="justify-content: center; padding: 5px;" class="row col-md-12">
-            Dzień: {{ weather.date }}
-          </div>
-          <div style="justify-content: center; padding: 5px;" class="row">
-            Temperatura: {{ weather.temperature }} st. C
-          </div>
-          <div style="justify-content: center; padding: 5px;" class="row">
-            Wilgotność: {{ weather.humidity }}%
-          </div>
-          <div style="justify-content: center; padding: 5px;" class="row">
-            Ciśnienie: {{ weather.pressure }} hPa
-          </div>
-          <div style="justify-content: center; padding: 5px;" class="row">
-            Prędkość wiatru: {{ weather.windSpeed }} km/h
-          </div>
-          <div style="justify-content: center; padding: 5px;" class="row">
-            PM 2.5: {{ weather.airPollution }} um
-          </div>
-        </div>
-      </div> -->
-    <!-- </div> -->
-
-    <!-- </div> -->
-    <!-- </div> -->
   </div>
 </div>
