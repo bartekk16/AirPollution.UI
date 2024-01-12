@@ -4,7 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Run `npm install` to install project dependencies.
+2. Run `ng serve` for a dev server.
+3. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -24,4 +26,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To get more help on the Angular CLI, use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## AirPollution.API Integration
+
+This Angular application serves as the frontend for the AirPollution.API, responsible for uploading a CSV file containing historical weather and pollution data. The API, located at [AirPollution.API](https://github.com/bartekk16/AirPollution.API), handles the backend processing, including the execution of a machine learning model to predict pollution levels based on weather forecasts.
